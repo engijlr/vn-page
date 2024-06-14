@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import Button from "./Button";
 import { GoClock } from "react-icons/go";
 
 function MealCard({ meal }: { meal: meal }) {
