@@ -17,21 +17,23 @@ function Navbar() {
 
   return (
     <>
-      <nav className="h-16  hidden lg:flex justify-between items-center px-6 lg:px-12">
+      <nav className="h-16 hidden lg:flex justify-between items-center px-6 lg:px-12">
         <Link href="/" className="text-secondary">
-          {/*<Image src="/happy-face.svg" alt="logo" width={32} height={32} />*/}
+          {/* <Image src="/happy-face.svg" alt="logo" width={32} height={32} /> */}
           Valentina Nutrition
         </Link>
 
-        <ul className="flex gap-7">
+        <ul className="flex gap-7" role="menubar">
           {NAV_LINKS.map((link) => (
-            <Link
-              key={link.key}
-              href={link.href}
-              className="font-medium capitalize text-secondary"
-            >
-              {link.label}
-            </Link>
+            <li key={link.key} role="none">
+              <Link
+                href={link.href}
+                className="font-medium capitalize text-secondary"
+                role="menuitem"
+              >
+                {link.label}
+              </Link>
+            </li>
           ))}
         </ul>
 
@@ -43,7 +45,7 @@ function Navbar() {
 
       <nav className="h-16 flex lg:hidden justify-between items-center px-6">
         <Link href="/" className="text-secondary">
-          {/*<Image src="/happy-face.svg" alt="logo" width={32} height={32} />*/}
+          {/* <Image src="/happy-face.svg" alt="logo" width={32} height={32} /> */}
           Valentina Nutrition
         </Link>
         {mobileMenuOpen ? (
@@ -51,17 +53,20 @@ function Navbar() {
             <RiCloseCircleLine
               className="w-7 h-7 cursor-pointer"
               onClick={handleMobileMenuOpen}
+              aria-label="Close menu"
             />
             <div className="absolute top-52 right-1/3">
-              <ul className="flex flex-col gap-5">
+              <ul className="flex flex-col gap-5" role="menu">
                 {NAV_LINKS.map((link) => (
-                  <Link
-                    key={link.key}
-                    href={link.href}
-                    className="font-medium capitalize text-secondary text-2xl"
-                  >
-                    {link.label}
-                  </Link>
+                  <li key={link.key} role="none">
+                    <Link
+                      href={link.href}
+                      className="font-medium capitalize text-secondary text-2xl"
+                      role="menuitem"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
                 ))}
               </ul>
               <div className="flex items-center gap-4 font-medium mt-10">
@@ -74,6 +79,7 @@ function Navbar() {
           <HiBars3BottomRight
             className="w-7 h-7 cursor-pointer"
             onClick={handleMobileMenuOpen}
+            aria-label="Open menu"
           />
         )}
       </nav>

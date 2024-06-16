@@ -6,7 +6,7 @@ import Link from "next/link";
 
 function LatestRecipe() {
   return (
-    <div className="px-5 xl:px-10 py-16">
+    <section className="px-5 xl:px-10 py-16">
       <h2 className="text-3xl mb-8 font-semibold text-secondary sm:text-5xl sm:leading-relaxed">
         Latest Recipes
       </h2>
@@ -20,12 +20,12 @@ function LatestRecipe() {
         )}
       </div>
 
-      <Link href="#">
-        <div className="sm:w-64 mx-auto mt-16">
+      <div className="sm:w-64 mx-auto mt-16">
+        <Link href="#">
           <Button title="View All Recipes" type="button" />
-        </div>
-      </Link>
-    </div>
+        </Link>
+      </div>
+    </section>
   );
 }
 

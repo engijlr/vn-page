@@ -10,7 +10,11 @@ function Hero() {
           A blog template made for food{" "}
           <span className="text-orange-400">influencers</span>
         </h1>
-        <form className="bg-white p-4 rounded relative flex items-center">
+        <form
+          className="bg-white p-4 rounded relative flex items-center"
+          role="search"
+          aria-label="Recipe search form"
+        >
           <IoSearchCircleOutline className="w-7 h-7 mr-2 text-neutral-300" />
           <input
             className="outline-none w-full placeholder:text-[#1b2629]"
@@ -23,7 +27,10 @@ function Hero() {
         </form>
       </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-8">
+      <nav
+        className="flex flex-wrap items-center justify-center gap-8"
+        aria-label="Categories"
+      >
         {CATEGORIES.map((item) => (
           <Badge
             key={item.type}
@@ -33,7 +40,7 @@ function Hero() {
             color={item.color}
           />
         ))}
-      </div>
+      </nav>
     </header>
   );
 }

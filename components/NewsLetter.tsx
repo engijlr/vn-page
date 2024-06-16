@@ -3,7 +3,7 @@ import Button from "./Button";
 
 const NewsLetter = () => {
   return (
-    <div className="w-full md:w-2/3 mx-auto flex flex-col items-center p-10">
+    <section className="w-full md:w-2/3 mx-auto flex flex-col items-center p-10">
       <h3 className="text-secondary font-semibold text-center text-4xl">
         Sign up for my weekly newsletter!
       </h3>
@@ -13,21 +13,25 @@ const NewsLetter = () => {
         unde nobis facilis voluptate consequuntur, asperiores mollitia at?
       </p>
 
-      <div className="mt-6 flex flex-col md:flex-row items-center justify-center w-full md:px-8 gap-4 mb-20">
+      <form className="mt-6 flex flex-col md:flex-row items-center justify-center w-full md:px-8 gap-4 mb-20">
         <input
           type="text"
+          name="name"
           placeholder="Name"
           className="flex flex-grow px-4 py-4 rounded text-gray-400 outline-none placeholder:text-[#1b2629]"
+          required
         />
         <input
           type="email"
+          name="email"
           placeholder="Email Address"
           className="flex flex-grow px-4 py-4 rounded text-gray-400 outline-none placeholder:text-[#1b2629]"
+          required
         />
 
-        <Button title="Get Started" type="button" />
-      </div>
-    </div>
+        <Button title="Get Started" type="submit" />
+      </form>
+    </section>
   );
 };
 

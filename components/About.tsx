@@ -4,7 +4,7 @@ import Button from "./Button";
 
 const About = () => {
   return (
-    <div className="overflow-hidden flex md:flex-row flex-col justify-between items-center sm:mt-20 my-4 md:gap-20 gap-12 px-5 lg:px-10">
+    <section className="overflow-hidden flex md:flex-row flex-col justify-between items-center sm:mt-20 my-4 md:gap-20 gap-12 px-5 lg:px-10">
       <div className="text-start sm:w-1/2">
         <h2 className="text-3xl font-semibold text-secondary sm:text-5xl sm:leading-relaxed">
           Someone who loves to experiment with recipes
@@ -26,13 +26,13 @@ const About = () => {
       <div className="sm:w-1/2">
         <Image
           src="/person.avif"
-          alt="featured mel"
+          alt="person who loves to experiment with recipes"
           width={500}
           height={500}
           className="rounded-md w-full"
         />
       </div>
-    </div>
+    </section>
   );
 };
 
