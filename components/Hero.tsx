@@ -26,6 +26,7 @@ function Hero() {
       <div className="flex flex-wrap items-center justify-center gap-8">
         {CATEGORIES.map((item) => (
           <Badge
+            key={item.type}
             name={item.type}
             href={item.href}
             backgroundColor={item.background}

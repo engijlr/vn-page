@@ -12,7 +12,9 @@ function LatestRecipe() {
       </h2>
       <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {MEALS ? (
-          MEALS.slice(0, 4).map((meal) => <MealCard meal={meal} />)
+          MEALS.slice(0, 4).map((meal) => (
+            <MealCard meal={meal} key={meal.mealId} />
+          ))
         ) : (
           <p>Loading...</p>
         )}
