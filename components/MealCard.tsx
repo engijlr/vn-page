@@ -16,7 +16,7 @@ function MealCard({ meal }: { meal: meal }) {
             className="rounded-t-lg"
           />
           <div className="py-6 px-5 rounded-lg bg-white">
-            <Link href="#">
+            <Link href={"/" + meal.category + "/" + meal.mealId}>
               <p className="text-gray-700 font-bold text-2xl mb-8 hover:text-gray-900 hover:shadow-lg transition duration-300">
                 {meal.name}
               </p>
