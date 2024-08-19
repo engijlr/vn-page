@@ -1,8 +1,13 @@
+import { GetPostsResponse, PostEdge } from "@/types";
 import { gql, request } from "graphql-request";
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
-export const getPosts = async () => {
+if (!graphqlAPI) {
+  throw new Error("NEXT_PUBLIC_GRAPHCMS_ENDPOINT is not defined");
+}
+
+export const getPosts = async (): Promise<PostEdge[]> => {
   const query = gql`
     query MyQuery {
       postsConnection {
@@ -33,6 +38,11 @@ export const getPosts = async () => {
     }
   `;
 
-  const results = await request(graphqlAPI as string, query);
-  return results.postsConnection.edges;
+  try {
+    const results = await request<any>(graphqlAPI, query);
+    return results.postsConnection.edges;
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    throw new Error("Failed to fetch posts");
+  }
 };

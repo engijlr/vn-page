@@ -16,3 +16,43 @@ type meal = {
   servings: string;
   difficulty: string;
 };
+
+export interface Author {
+  authorname: string;
+  id: string;
+  email: string;
+  profilepicture: {
+    url: string;
+  };
+}
+
+export interface Category {
+  categoryname: string;
+  slug: string;
+}
+
+export interface Image {
+  url: string;
+}
+
+export interface PostNode {
+  author: Author;
+  createdAt: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  image: Image;
+  category: Category;
+}
+
+export interface PostEdge {
+  node: PostNode;
+}
+
+export interface PostsConnection {
+  edges: PostEdge[];
+}
+
+export interface GetPostsResponse {
+  postsConnection: PostsConnection;
+}
