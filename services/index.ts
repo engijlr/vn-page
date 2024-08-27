@@ -1,4 +1,4 @@
-import { GetPostsResponse, PostEdge } from "@/types";
+import { GetPostsResponse, PostEdge, PostsConnection } from "@/types";
 import { gql, request } from "graphql-request";
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
@@ -39,7 +39,7 @@ export const getPosts = async (): Promise<PostEdge[]> => {
   `;
 
   try {
-    const results = await request<any>(graphqlAPI, query);
+    const results = await request<GetPostsResponse>(graphqlAPI, query);
     return results.postsConnection.edges;
   } catch (error) {
     console.error("Error fetching posts:", error);
